@@ -1,0 +1,25 @@
+.link {
+  border: 1px solid black;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  text-decoration: none;
+  padding: 10px;
+  background-color: white;
+  height: 201px;
+}
+
+.link:hover {
+  box-shadow: var(--box-shadow);
+}
+
+.header {
+  font-size: 20px;
+}
+
+.text {
+  margin: 0;
+  line-height: normal;
+  font-size: 15px;
+  color: rgb(var(--gray-dark));
+}
