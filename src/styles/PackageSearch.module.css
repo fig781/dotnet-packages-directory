@@ -57,6 +57,6 @@
 }
 
 .searchInput {
-  width: 99%;
+  width: -webkit-fill-available;
   padding: 10px;
 }
