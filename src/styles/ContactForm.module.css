@@ -1,0 +1,45 @@
+.btnContact {
+  color: white;
+  background: var(--accent);
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+/* .btnContact:hover {
+  transform: scale(0.97, 0.97);
+  background-color: var(--bg-color);
+  color: white;
+} */
+
+.form {
+  max-width: 650px;
+  margin: auto;
+  padding: 0 36px 36px 36px;
+}
+
+.formMessage {
+  padding-left: 15px;
+  margin-bottom: 0;
+}
+
+.upperContainer {
+  display: flex;
+  gap: 10px;
+}
+
+.upperInner {}
+
+.input {
+  font-size: 20px;
+  padding: 3px;
+  width: 100%;
+}
+
+@media only screen and (max-width: 425px) {
+  .upperContainer {
+    flex-direction: column;
+  }
+}

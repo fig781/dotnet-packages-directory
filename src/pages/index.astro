@@ -4,6 +4,7 @@ import Header from "../components/Header.astro";
 import Footer from "../components/Footer.astro";
 import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
 import PackagesSearch from "../components/PackagesSearch";
+import ContactForm from "../components/ContactForm.tsx";
 ---
 
 <!doctype html>
@@ -39,6 +40,7 @@ import PackagesSearch from "../components/PackagesSearch";
       <!-- add search and all items -->
       <PackagesSearch client:load />
     </main>
+    <ContactForm client:load />
     <Footer />
     <style>
       main {
