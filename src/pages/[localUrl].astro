@@ -1,0 +1,99 @@
+---
+import { packageItemsData } from "../content/packageItemsData";
+import BaseHead from "../components/BaseHead.astro";
+import { SITE_TITLE, SITE_DESCRIPTION } from "../consts";
+import Header from "../components/Header.astro";
+import ContactForm from "../components/ContactForm";
+import Footer from "../components/Footer.astro";
+
+export function getStaticPaths() {
+  const params = packageItemsData.map((item) => {
+    return {
+      params: { localUrl: item.localUrl },
+    };
+  });
+  return params;
+}
+
+const { localUrl } = Astro.params;
+const pageData = packageItemsData.find((data) => data.localUrl === localUrl);
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Google tag (gtag.js) -->
+    <script
+      type="text/partytown"
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-J17CMRF28L"></script>
+    <script type="text/partytown">
+      window.dataLayer = window.dataLayer || [];
+      function gtag() {
+        dataLayer.push(arguments);
+      }
+      gtag("js", new Date());
+
+      gtag("config", "G-J17CMRF28L");
+    </script>
+    <BaseHead title={pageData!.name} description={pageData!.description} />
+  </head>
+  <body>
+    <Header />
+    <main>
+      <div class="main-text">
+        <h1>{pageData?.name}</h1>
+        <ul>
+          {
+            pageData?.categories.map((category) => {
+              return <li class="category">{category}</li>;
+            })
+          }
+        </ul>
+
+        <p style="">
+          {
+            pageData?.longDescription
+              ? pageData.longDescription
+              : pageData?.description
+          }
+        </p>
+        <a class="btn" href={pageData?.url} target="_blank"
+          >Visit {pageData?.name}</a
+        >
+      </div>
+    </main>
+    <ContactForm client:load />
+    <Footer />
+    <style>
+      main {
+        width: auto;
+        margin: auto;
+        padding: 3em 1em 18rem 1rem;
+      }
+
+      .main-text {
+        max-width: 720px;
+        margin: auto;
+      }
+
+      ul {
+        list-style: none;
+        padding-left: 0;
+      }
+      .category {
+        width: fit-content;
+        padding: 2px 18px;
+        border-radius: 15px;
+        background-color: var(--accent-third);
+        font-size: 16px;
+      }
+
+      @media only screen and (max-width: 600px) {
+        h1 {
+          font-size: 2rem;
+        }
+      }
+    </style>
+  </body>
+</html>

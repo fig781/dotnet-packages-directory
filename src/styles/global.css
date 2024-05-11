@@ -7,6 +7,7 @@
 :root {
   --accent: #441cd3;
   --accent-dark: #000d8a;
+  --accent-third: rgb(172 153 234);
   --black: 15, 18, 25;
   --gray: 96, 115, 159;
   --gray-light: 229, 233, 240;
@@ -153,6 +154,21 @@ blockquote {
 hr {
   border: none;
   border-top: 1px solid rgb(var(--gray-light));
+}
+
+.btn {
+  color: white;
+  background: var(--accent);
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.btn:hover {
+  color: white;
 }
 
 @media (max-width: 720px) {
